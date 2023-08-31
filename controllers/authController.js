@@ -43,8 +43,8 @@ const login = asyncHandler(async (req, res) => {
 
     res.cookie('jwt', refreshToken, {
         httpOnly: true, // important: only accessible by web server, so its secure
-        // secure: true,
-        // sameSite: 'None',
+        secure: true,
+        sameSite: 'None',
         maxAge: 24 * 60 * 60 * 1000 // one day
     })
 
@@ -98,7 +98,7 @@ const logout = (req, res) => {
     if (!cookies?.jwt) return res.sendStatus(204) //No content
     res.clearCookie('jwt', { 
         httpOnly: true, 
-        // sameSite: 'None', 
+        sameSite: 'None', 
         secure:false
     })
     res.json({message: 'Cookie cleared'}) // by default a 200 status msg
