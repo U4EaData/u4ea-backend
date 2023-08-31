@@ -7,7 +7,6 @@ const asyncHandler = require('express-async-handler')
 // @route POST /auth
 // @access Public
 const login = asyncHandler(async (req, res) => {
-    // up to sum
     const {email, password} = req.body
 
     if(!email || !password) {
