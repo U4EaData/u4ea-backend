@@ -7,7 +7,6 @@ const asyncHandler = require('express-async-handler')
 // @access Private
 const getEntries = asyncHandler(async (req, res) => { // gets either all entries in the DB or all the entries for a specific user, based off what is passed in the req.body
     const { userID } = req.query;
-    console.log(req.query)
     if (!userID){
         // Get all entries from MongoDB
         const entries = await Entry.find().lean()
